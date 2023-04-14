@@ -12,7 +12,10 @@ bot = commands.Bot(command_prefix=PREFIX, intents=discord.Intents.all())
 async def on_ready():
     for cog in os.listdir("./cogs"):
         if cog.endswith(".py"):
-            await bot.load_extension(f"cogs.{cog[:-3]}")
+            try:
+                await bot.load_extension(f"cogs.{cog[:-3]}")
+            except Exception as e:
+                print(e)
     await bot.tree.sync()
     print(f"Bot is ready as {bot.user.name}")
 
