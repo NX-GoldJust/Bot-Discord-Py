@@ -20,4 +20,4 @@ async def on_ready():
     print(f"Bot is ready as {bot.user.name}")
 
 
-@bot.run(TOKEN)
+bot.run(TOKEN)
